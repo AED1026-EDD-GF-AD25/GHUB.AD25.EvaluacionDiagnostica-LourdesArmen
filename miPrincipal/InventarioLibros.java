@@ -4,24 +4,46 @@ public class InventarioLibros{
     int contador; //contar los libros que voy agregando
     //constructores vacio
     public InventarioLibros(){
-        libros = new Libro[100];
+        libros = new Libro[2];
         contador = 0;
     }
 
     //Métodos personalizados
     //agregar un libro a la lista
     public void agregar(Libro libro){
+        if (contador<libros.length){
+            libros[contador++] = libro;
+
+        }
+        else{
+            Libro librosTemp[] = new Libro[libros.length*2];
+            for(int i=0; i<libros.length;i++){
+                librosTemp[i]= libros[i];
+
+            }
+            libros = librosTemp;
+            libros[contador++] = libro;
+        }
+
         
     }
     //buscar un libro en la lista por autor
     //si lo encuentra regresa el libro buscado
     //si no regresa null
     public Libro buscar(String autor){
+        for(int i=0;i<contador;i++){
+            if(libros[i].getAutor().equalsIgnoreCase(autor)){
+                return libros[i];
+            }
+        }
         return null;
 
     }
     //muestra la lista completa de libros
     public void mostrar(){
+        for (int i=0;i<contador;i++){
+            System.out.println(libros[i].toString());
+        }
 
     }
 
