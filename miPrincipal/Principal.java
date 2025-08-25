@@ -36,6 +36,7 @@ public class Principal {
                    System.out.println("Libro no encontrado");
                 else
                    System.out.println(libro);
+                break;
 
             case 3:
                inventarioLibros.mostrar();
