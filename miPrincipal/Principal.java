@@ -31,12 +31,15 @@ public class Principal {
             case 2:
                 System.out.print("Proporciona Autor:");
                 autor = entrada.nextLine();
-                libro = inventarioLibros.buscar(autor);
-                if (libro == null)
-                   System.out.println("Libro no encontrado");
-                else
-                   System.out.println(libro);
+                Libro listaBuscada[];
+                listaBuscada = inventarioLibros.buscar(autor);
+                
+                for (int i=0;i<listaBuscada.length;i++){
+                    if (listaBuscada[i] != null)
+                       System.out.println(listaBuscada[i]);
+                }
                 break;
+                
 
             case 3:
                inventarioLibros.mostrar();
